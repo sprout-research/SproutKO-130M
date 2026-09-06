@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sproutko"
+version = "0.1.0"
+description = "Inference runtime for the SproutKO-130M Korean base language model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+dependencies = ["torch>=2.2.0", "numpy>=1.26", "tokenizers>=0.21,<1", "safetensors>=0.4", "huggingface_hub>=0.23"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build>=1.2"]
+
+[project.scripts]
+sproutko-generate = "sproutko.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sproutko*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
