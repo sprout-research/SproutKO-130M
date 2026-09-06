@@ -1,12 +1,14 @@
 # SproutKO-130M
 
-한국어 사전학습 기본 모델 SproutKO-130M의 **추론 전용 런타임**입니다.
-학습 코드, 데이터 처리 코드, 학습 로그는 포함하지 않습니다.
-코드·가중치·토크나이저의 라이선스는 [Apache-2.0](LICENSE)입니다.
+[English](README.md) | [한국어](README.ko.md)
 
-## 설치
+An **inference-only runtime** for SproutKO-130M, a Korean pretrained base language model.
+Training code, data processing code, and training logs are not included.
+The code, weights, and tokenizer are licensed under [Apache-2.0](LICENSE).
 
-Python 3.10 이상이 필요합니다. GPU 사용 시 환경에 맞는 PyTorch를 먼저 설치하세요.
+## Installation
+
+Python 3.10 or later is required. For GPU inference, install the appropriate PyTorch version for your environment first.
 
 ```bash
 git clone https://github.com/project-iconik/SproutKO-130M.git
@@ -14,17 +16,17 @@ cd SproutKO-130M
 pip install .
 ```
 
-## 텍스트 생성
+## Text generation
 
-가중치가 모델 Hub에 공개된 후 다음 명령을 사용할 수 있습니다.
-비공개 상태라면 해당 Hub 저장소 접근 권한과 로컬 로그인이 필요합니다.
+The following command can be used once the weights are public on the model Hub.
+If the Hub repository is private, you need access to it and must authenticate locally.
 
 ```bash
 sproutko-generate --checkpoint project-iconik/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
-로컬 번들에는 `config.json`, `model.safetensors`, 설정에서 지정한 토크나이저 JSON이 필요합니다.
-로컬 준비 폴더에는 이 파일들이 `weights/`에 복사되어 있습니다. Git에는 포함되지 않습니다.
+A local bundle must contain `config.json`, `model.safetensors`, and the tokenizer JSON specified in the configuration.
+In the prepared local project, these files are copied into `weights/`. They are not tracked by Git.
 
 ```bash
 sproutko-generate --checkpoint ./weights --prompt "한국어는" --temperature 0
@@ -35,7 +37,7 @@ python scripts/generate.py --checkpoint ./weights --prompt "한국어는" --temp
 import torch
 from sproutko import SproutKOForCausalLM, SproutKOTokenizer, generate
 
-source = "project-iconik/SproutKO-130M"  # 또는 로컬 weights 폴더
+source = "project-iconik/SproutKO-130M"  # Or a local weights directory
 model = SproutKOForCausalLM.from_pretrained(source)
 tokenizer = SproutKOTokenizer.from_pretrained(source)
 ids = torch.tensor([tokenizer.encode("한국어는")], dtype=torch.long)
@@ -44,19 +46,19 @@ output = generate(model, ids, max_new_tokens=64, temperature=0,
 print(tokenizer.decode(output[0].tolist()))
 ```
 
-가중치와 토크나이저는 동일한 릴리스의 파일을 함께 사용하세요.
-Hub 로더는 `revision`, `token`, `cache_dir` 인자도 지원합니다.
-`transformers.AutoModelForCausalLM` 및 학습용 `.pt` 체크포인트는 지원하지 않습니다.
-빈 프롬프트는 지원하지 않습니다. 프롬프트와 출력 길이의 합은 최대 4,096 토큰입니다.
+Use weights and tokenizer files from the same release together.
+The Hub loaders also support `revision`, `token`, and `cache_dir` arguments.
+`transformers.AutoModelForCausalLM` and training `.pt` checkpoints are not supported.
+Empty prompts are not supported. The combined prompt and output length must not exceed 4,096 tokens.
 
-## 모델
+## Model
 
-129,983,232개 고유 파라미터, 16개 레이어, hidden size 768,
-query/KV head 12/4, 32,000개 어휘, RoPE·GQA·RMSNorm·SwiGLU를 사용합니다.
-사전학습 시퀀스 길이는 2,048입니다. 대화형 지시 학습을 거치지 않은 기본 모델입니다.
-출력에 부정확하거나 편향된 내용이 포함될 수 있습니다.
+The model has 129,983,232 unique parameters, 16 layers, a hidden size of 768,
+12 query heads, 4 KV heads, and a vocabulary of 32,000 tokens. It uses RoPE, GQA, RMSNorm, and SwiGLU.
+The pretraining sequence length is 2,048. This is a base model without conversational instruction tuning.
+Generated text may contain inaccurate or biased content.
 
-## 검증
+## Verification
 
 ```bash
 pip install -e ".[dev]"
@@ -64,5 +66,5 @@ pytest -q
 python -m build
 ```
 
-공개 파일의 체크섬은 `release/SHA256SUMS`에 있습니다.
-가중치 번들 전체는 모델 Hub에, 추론 코드는 GitHub에 배포합니다.
+Checksums for the release files are in `release/SHA256SUMS`.
+The complete weights bundle is distributed through the model Hub, and the inference code through GitHub.
