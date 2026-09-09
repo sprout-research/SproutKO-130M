@@ -1,6 +1,6 @@
 # SproutKO-130M
 
-[English](README.md) · **한국어**
+[English](README.md) · [日本語](README.ja.md) · **한국어**
 
 SproutKO-130M은 **129,983,232개 고유 파라미터의 한국어 사전학습 decoder-only Transformer**입니다. 텍스트를 이어 쓰는 **기본 모델**이며, 이 저장소는 PyTorch 추론 런타임을 제공합니다.
 

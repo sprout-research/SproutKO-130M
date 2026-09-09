@@ -1,6 +1,6 @@
 # SproutKO-130M
 
-**English** · [한국어](README.ko.md)
+**English** · [日本語](README.ja.md) · [한국어](README.ko.md)
 
 SproutKO-130M is a **Korean pretrained decoder-only Transformer** with **129,983,232 unique parameters**. It is a **base** model for text completion. This repository provides the PyTorch inference runtime.
 
