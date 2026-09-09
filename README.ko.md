@@ -8,8 +8,6 @@ SproutKO-130M은 **129,983,232개 고유 파라미터의 한국어 사전학습 
 - 가중치와 토크나이저: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
 - 릴리스 검증 기록: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
-**공개 상태:** 현재 공개를 준비하고 있습니다. 아래 복제 및 Hub 다운로드 예제는 저장소 공개를 전제로 합니다. 비공개 저장소에는 접근 권한과 로컬 인증이 필요합니다.
-
 릴리스 설정에 기록된 학습량은 **106,812스텝**, **7,000,031,232토큰**입니다. 사전학습 시퀀스 길이는 **2,048**입니다.
 
 ## 빠른 시작

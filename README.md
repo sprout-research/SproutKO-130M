@@ -8,8 +8,6 @@ SproutKO-130M is a **Korean pretrained decoder-only Transformer** with **129,983
 - Weights and tokenizer: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
 - Release verification: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
-**Release status:** public release is being prepared. The clone and Hub download examples below assume the repositories are public. Private repositories require access and local authentication.
-
 The release configuration records **7,000,031,232 training tokens** at step **106,812**. The pretraining sequence length is **2,048**.
 
 ## Quick start
