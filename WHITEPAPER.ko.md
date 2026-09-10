@@ -344,11 +344,11 @@ flowchart LR
 
 균등한 32,000개 어휘 분포의 CE는 `ln(32,000) ≈ 10.3735`다. 첫 학습 loss는 이 기준에 가까운 10.5257에서 시작한다. 마지막 train loss의 기록 시점은 종료보다 두 step 이른 106,810이다. train record는 10,682개, validation record는 214개다. [S2, S13]
 
-![학습 및 검증 손실](../../results/sproutko_130m_24gb/20260903T033724Z/figures/loss_curve.png)
+![학습 및 검증 손실](assets/whitepaper/loss_curve.png)
 
 그림 6. 보관된 train·validation loss 곡선. 서로 다른 입력 데이터와 집계 조건의 관측값이다.
 
-![검증 perplexity](../../results/sproutko_130m_24gb/20260903T033724Z/figures/perplexity_curve.png)
+![검증 perplexity](assets/whitepaper/perplexity_curve.png)
 
 그림 7. 최대 256배치의 validation에서 기록한 perplexity.
 
@@ -417,7 +417,7 @@ Macro는 과제마다 같은 가중치를 부여한다. 과제별 성능은 Hell
 
 단위는 %. 정확한 ID는 부록 C에 제시한다. 각 모델은 고유한 어휘·학습량·데이터·문맥 길이 조건을 가진다.
 
-![KoBEST 과제별 raw 비교](../../results/kobest/figures/grouped.png)
+![KoBEST 과제별 raw 비교](assets/whitepaper/grouped.png)
 
 그림 8. 보관된 로컬 zero-shot 비교 그림. 범례의 `step_106812.pt`는 SproutKO-130M이다. HellaSwag의 균등 무작위 기준은 25%, 나머지는 50%다. Macro는 다섯 과제의 단순평균이며, 모델별 정확한 값과 식별자는 위 표와 부록 C를 따른다.
 
@@ -450,7 +450,7 @@ PMI는 WiC의 상수 선택을 깨뜨리지만 47.38%는 균등 무작위 50%와
 
 PMI 집계의 일부 한글 문자열 필드에는 replacement character가 남아 있다. 위 label 이름은 숫자 ID와 평가 코드의 verbalizer 대응을 기준으로 해석했다. [S7, S8, S13]
 
-![WiC raw와 PMI 비교](../../results/kobest_pmi/figures/wic.png)
+![WiC raw와 PMI 비교](assets/whitepaper/wic.png)
 
 그림 9. 보관된 WiC raw·PMI 비교. 점선은 균등 무작위 기준인 50%를 나타낸다. 해당 validation의 다수 클래스 기준은 57.21%다. 보정의 방향과 크기는 모델마다 다르게 나타난다.
 

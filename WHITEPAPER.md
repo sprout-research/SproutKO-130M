@@ -344,11 +344,11 @@ Memory values come from `memory_allocated()` and `memory_reserved()` at training
 
 Cross-entropy for a uniform distribution over 32,000 vocabulary entries is `ln(32,000) ≈ 10.3735`. The first training loss, 10.5257, is close to this reference. The last training loss was logged at step 106,810, two steps before completion. There are 10,682 training records and 214 validation records. [S2, S13]
 
-![Training and validation loss](../../results/sproutko_130m_24gb/20260903T033724Z/figures/loss_curve.png)
+![Training and validation loss](assets/whitepaper/loss_curve.png)
 
 Figure 6. Archived training and validation loss curves. The observations use different input data and aggregation conditions.
 
-![Validation perplexity](../../results/sproutko_130m_24gb/20260903T033724Z/figures/perplexity_curve.png)
+![Validation perplexity](assets/whitepaper/perplexity_curve.png)
 
 Figure 7. Perplexity recorded on validation capped at 256 batches.
 
@@ -417,7 +417,7 @@ The values below come from evaluation records archived in the repository. Model 
 
 Values are percentages. Exact IDs appear in Appendix C. Each model has its own vocabulary, training volume, data, and context-length conditions.
 
-![KoBEST raw comparison by task](../../results/kobest/figures/grouped.png)
+![KoBEST raw comparison by task](assets/whitepaper/grouped.png)
 
 Figure 8. Archived local zero-shot comparison. The legend entry `step_106812.pt` refers to SproutKO-130M. Uniform-random accuracy is 25% for HellaSwag and 50% for the other tasks. Macro is the simple mean across five tasks; exact values and identifiers follow the table above and Appendix C.
 
@@ -450,7 +450,7 @@ The composite gain is approximately **0.8037 percentage points** before rounding
 
 Some Korean string fields in the PMI aggregates contain replacement characters. Label names above were interpreted using numeric IDs and their verbalizer mappings in the evaluation code. [S7, S8, S13]
 
-![WiC raw and PMI comparison](../../results/kobest_pmi/figures/wic.png)
+![WiC raw and PMI comparison](assets/whitepaper/wic.png)
 
 Figure 9. Archived WiC raw-versus-PMI comparison. The dashed line marks the 50% uniform-random baseline. The majority-class baseline for this validation set is 57.21%. The direction and magnitude of correction vary by model.
 

@@ -344,11 +344,11 @@ flowchart LR
 
 32,000語彙の一様分布に対するCEは`ln(32,000) ≈ 10.3735`である。最初の学習lossは、この基準に近い10.5257から始まる。最後のtrain lossの記録は、終了の2 step前に当たる106,810である。train recordは10,682件、validation recordは214件ある。[S2, S13]
 
-![学習・検証損失](../../results/sproutko_130m_24gb/20260903T033724Z/figures/loss_curve.png)
+![学習・検証損失](assets/whitepaper/loss_curve.png)
 
 図6. 保存済みのtrain・validation loss曲線。入力データと集計条件が異なる観測値である。
 
-![検証perplexity](../../results/sproutko_130m_24gb/20260903T033724Z/figures/perplexity_curve.png)
+![検証perplexity](assets/whitepaper/perplexity_curve.png)
 
 図7. 最大256バッチのvalidationで記録したperplexity。
 
@@ -417,7 +417,7 @@ Macroは各タスクに同じ重みを与える。タスク別性能は、HellaS
 
 単位は%である。正確なIDは付録Cに示す。各モデルは、それぞれ固有の語彙・学習量・データ・文脈長の条件を持つ。
 
-![KoBESTのタスク別raw比較](../../results/kobest/figures/grouped.png)
+![KoBESTのタスク別raw比較](assets/whitepaper/grouped.png)
 
 図8. 保存済みのローカルzero-shot比較。凡例の`step_106812.pt`はSproutKO-130Mを表す。一様ランダム基準はHellaSwagが25%、その他が50%である。Macroは5タスクの単純平均で、正確な値と識別子は上表と付録Cに示す。
 
@@ -450,7 +450,7 @@ PMIによりWiCの回答選択は分散し、正解率は47.38%となる。一�
 
 PMI集計の一部の韓国語文字列フィールドには置換文字が残っている。上記のlabel名は、数値IDと評価コードのverbalizer対応に基づいて解釈した。[S7, S8, S13]
 
-![WiC raw・PMI比較](../../results/kobest_pmi/figures/wic.png)
+![WiC raw・PMI比較](assets/whitepaper/wic.png)
 
 図9. 保存済みのWiC raw・PMI比較。破線は一様ランダム基準の50%を示す。このvalidationの多数クラス基準は57.21%である。補正の方向と大きさはモデルごとに異なる。
 
