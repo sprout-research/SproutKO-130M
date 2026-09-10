@@ -4,7 +4,7 @@
 
 SproutKO-130Mは、**129,983,232個の固有パラメータを持つ韓国語の事前学習済みdecoder-only Transformer**です。テキストの続きを生成する**ベースモデル**で、このリポジトリではPyTorch推論ランタイムを提供します。
 
-- コード: [`project-iconik/SproutKO-130M`](https://github.com/project-iconik/SproutKO-130M)
+- コード: [`sprout-research/SproutKO-130M`](https://github.com/sprout-research/SproutKO-130M)
 - 重みとトークナイザー: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
 - リリース検証記録: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
@@ -15,7 +15,7 @@ SproutKO-130Mは、**129,983,232個の固有パラメータを持つ韓国語の
 Python **3.10以上**とPyTorch **2.2以上**が必要です。パッケージのインストール時に、PyTorchとトークナイザー・Hub関連の依存パッケージもインストールされます。CUDAで推論する場合は、環境に合ったPyTorchを先にインストールしてください。
 
 ```bash
-git clone https://github.com/project-iconik/SproutKO-130M.git
+git clone https://github.com/sprout-research/SproutKO-130M.git
 cd SproutKO-130M
 python -m venv .venv
 ```

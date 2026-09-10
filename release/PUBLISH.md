@@ -1,6 +1,6 @@
 # Publication targets
 
-- Code: https://github.com/project-iconik/SproutKO-130M (new repository; do not rename or push the training repository).
+- Code: https://github.com/sprout-research/SproutKO-130M (new repository; do not rename or push the training repository).
 - Model bundle: https://huggingface.co/project-iconik/SproutKO-130M.
 - Both code and model bundle: Apache-2.0.
 

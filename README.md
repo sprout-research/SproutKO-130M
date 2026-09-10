@@ -4,7 +4,7 @@
 
 SproutKO-130M is a **Korean pretrained decoder-only Transformer** with **129,983,232 unique parameters**. It is a **base** model for text completion. This repository provides the PyTorch inference runtime.
 
-- Code: [`project-iconik/SproutKO-130M`](https://github.com/project-iconik/SproutKO-130M)
+- Code: [`sprout-research/SproutKO-130M`](https://github.com/sprout-research/SproutKO-130M)
 - Weights and tokenizer: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
 - Release verification: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
@@ -15,7 +15,7 @@ The release configuration records **7,000,031,232 training tokens** at step **10
 Python **3.10+** and PyTorch **2.2+** are required. Installation includes PyTorch and the tokenizer/Hub dependencies. For CUDA inference, install the appropriate PyTorch build for your environment first.
 
 ```bash
-git clone https://github.com/project-iconik/SproutKO-130M.git
+git clone https://github.com/sprout-research/SproutKO-130M.git
 cd SproutKO-130M
 python -m venv .venv
 ```

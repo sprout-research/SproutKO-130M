@@ -4,7 +4,7 @@
 
 SproutKO-130M은 **129,983,232개 고유 파라미터의 한국어 사전학습 decoder-only Transformer**입니다. 텍스트를 이어 쓰는 **기본 모델**이며, 이 저장소는 PyTorch 추론 런타임을 제공합니다.
 
-- 코드: [`project-iconik/SproutKO-130M`](https://github.com/project-iconik/SproutKO-130M)
+- 코드: [`sprout-research/SproutKO-130M`](https://github.com/sprout-research/SproutKO-130M)
 - 가중치와 토크나이저: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
 - 릴리스 검증 기록: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
@@ -15,7 +15,7 @@ SproutKO-130M은 **129,983,232개 고유 파라미터의 한국어 사전학습 
 Python **3.10 이상**, PyTorch **2.2 이상**이 필요합니다. 패키지 설치 시 PyTorch와 토크나이저·Hub 의존성도 설치됩니다. CUDA 추론을 사용하려면 환경에 맞는 PyTorch를 먼저 설치하세요.
 
 ```bash
-git clone https://github.com/project-iconik/SproutKO-130M.git
+git clone https://github.com/sprout-research/SproutKO-130M.git
 cd SproutKO-130M
 python -m venv .venv
 ```

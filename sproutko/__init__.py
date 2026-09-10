@@ -4,7 +4,7 @@ from importlib import import_module
 from sproutko.config import ModelConfig
 from sproutko.tokenizer import SproutKOTokenizer, TokenizerConfig
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 _LAZY = {
     "SproutKOForCausalLM": ("sproutko.model", "SproutKOForCausalLM"),
     "generate": ("sproutko.generation", "generate"),
