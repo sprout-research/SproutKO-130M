@@ -32,14 +32,15 @@ Or on Windows PowerShell:
 .venv\Scripts\Activate.ps1
 ```
 
-Install the runtime and generate text on CPU:
+The weights are distributed through a gated Hugging Face repository. While signed in, open [`sprout-research/SproutKO-130M`](https://huggingface.co/sprout-research/SproutKO-130M) and request or accept access. Then install the runtime, authenticate the Hugging Face CLI, and generate text on CPU:
 
 ```bash
 python -m pip install .
+hf auth login
 sproutko-generate --checkpoint sprout-research/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
-The first run downloads the model weights, configuration, and tokenizer from Hugging Face Hub. Later runs reuse cached files. These three files and the installed runtime provide everything needed for inference.
+`hf auth login` stores a user access token locally; the CLI example uses that cached token. The first generation run downloads the model weights, configuration, and tokenizer from Hugging Face Hub. Later runs reuse cached files. These three files and the installed runtime provide everything needed for inference. Without approved model access and authentication, Hub downloads fail with a gated-repository authorization error.
 
 `--temperature 0` uses greedy decoding. For sampling, use options such as `--temperature 0.8 --top-k 50 --top-p 0.95 --seed 42`. Use `--device cuda` for CUDA; omitting `--device` selects CUDA when available, otherwise CPU.
 
@@ -64,7 +65,7 @@ output = generate(
 print(tokenizer.decode(output[0].tolist()))
 ```
 
-This example runs on CPU and prints the prompt followed by generated text. Both `from_pretrained` loaders accept `revision`, `token`, and `cache_dir`. To pin a release, pass the same Hub commit revision to both loaders.
+This example runs on CPU and prints the prompt followed by generated text. It uses the token cached by `hf auth login`. Both `from_pretrained` loaders also accept `revision`, `token`, and `cache_dir`; pass `token` explicitly when cached CLI authentication is not available. To pin a release, pass the same Hub commit revision to both loaders.
 
 ### Local weights
 

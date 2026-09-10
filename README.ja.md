@@ -32,14 +32,15 @@ Windows PowerShellでは、次のコマンドを使用します。
 .venv\Scripts\Activate.ps1
 ```
 
-ランタイムをインストールし、CPUでテキストを生成します。
+重みはgated Hugging Faceリポジトリで配布されています。サインインした状態で[`sprout-research/SproutKO-130M`](https://huggingface.co/sprout-research/SproutKO-130M)を開き、アクセスを申請するか利用条件に同意してください。その後、ランタイムをインストールし、Hugging Face CLIで認証してからCPUでテキストを生成します。
 
 ```bash
 python -m pip install .
+hf auth login
 sproutko-generate --checkpoint sprout-research/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
-初回実行時に、Hugging Face Hubからモデルの重み、設定、トークナイザーをダウンロードします。以降はキャッシュ済みのファイルを再利用します。この3つのファイルとインストール済みのランタイムで推論を実行できます。
+`hf auth login`はユーザーアクセストークンをローカルに保存し、上記のCLI例はそのトークンを使用します。初回の生成実行時に、Hugging Face Hubからモデルの重み、設定、トークナイザーをダウンロードします。以降はキャッシュ済みのファイルを再利用します。この3つのファイルとインストール済みのランタイムで推論を実行できます。モデルへのアクセス承認と認証がない場合、gatedリポジトリの認可エラーによりダウンロードは失敗します。
 
 `--temperature 0`はgreedyデコーディングを使用します。サンプリングには、`--temperature 0.8 --top-k 50 --top-p 0.95 --seed 42`などのオプションを指定してください。CUDAでは`--device cuda`を使用します。デフォルトのデバイス選択はCUDA優先で、環境に応じてCPUで実行されます。
 
@@ -64,7 +65,7 @@ output = generate(
 print(tokenizer.decode(output[0].tolist()))
 ```
 
-この例はCPUで実行され、プロンプトと生成されたテキストをまとめて出力します。両方の`from_pretrained`ローダーは、`revision`、`token`、`cache_dir`に対応しています。特定のリリースに固定するには、両方のローダーに同じHubコミットのrevisionを指定してください。
+この例はCPUで実行され、プロンプトと生成されたテキストをまとめて出力します。`hf auth login`で保存されたトークンを使用します。両方の`from_pretrained`ローダーは、`revision`、`token`、`cache_dir`にも対応しているため、CLIの認証情報を利用できない環境では`token`を明示的に渡してください。特定のリリースに固定するには、両方のローダーに同じHubコミットのrevisionを指定してください。
 
 ### ローカルの重み
 

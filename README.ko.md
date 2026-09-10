@@ -32,14 +32,15 @@ Windows PowerShell에서는 다음 명령을 사용합니다.
 .venv\Scripts\Activate.ps1
 ```
 
-런타임을 설치하고 CPU에서 텍스트를 생성합니다.
+가중치는 gated Hugging Face 저장소를 통해 배포됩니다. 로그인한 상태에서 [`sprout-research/SproutKO-130M`](https://huggingface.co/sprout-research/SproutKO-130M)을 열어 접근을 요청하거나 이용 조건에 동의하세요. 그런 다음 런타임을 설치하고 Hugging Face CLI에 로그인한 뒤 CPU에서 텍스트를 생성합니다.
 
 ```bash
 python -m pip install .
+hf auth login
 sproutko-generate --checkpoint sprout-research/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
-첫 실행 시 Hugging Face Hub에서 가중치, 설정, 토크나이저를 다운로드합니다. 이후에는 캐시된 파일을 재사용합니다. 이 세 파일과 설치된 런타임으로 추론을 실행할 수 있습니다.
+`hf auth login`은 사용자 액세스 토큰을 로컬에 저장하며, 위 CLI 예제는 이 토큰을 사용합니다. 첫 생성 실행 시 Hugging Face Hub에서 가중치, 설정, 토크나이저를 다운로드합니다. 이후에는 캐시된 파일을 재사용합니다. 이 세 파일과 설치된 런타임으로 추론을 실행할 수 있습니다. 모델 접근 승인과 인증이 없으면 gated 저장소 권한 오류로 다운로드에 실패합니다.
 
 `--temperature 0`은 greedy 디코딩을 사용합니다. 샘플링하려면 `--temperature 0.8 --top-k 50 --top-p 0.95 --seed 42` 등의 옵션을 지정하세요. CUDA에서는 `--device cuda`를 사용합니다. 기본 장치 선택은 CUDA 우선이며, 환경에 따라 CPU로 실행됩니다.
 
@@ -64,7 +65,7 @@ output = generate(
 print(tokenizer.decode(output[0].tolist()))
 ```
 
-위 예제는 CPU에서 실행되며 프롬프트와 생성된 텍스트를 함께 출력합니다. 두 `from_pretrained` 로더는 `revision`, `token`, `cache_dir`를 지원합니다. 특정 릴리스를 고정하려면 두 로더에 동일한 Hub 커밋 revision을 전달하세요.
+위 예제는 CPU에서 실행되며 프롬프트와 생성된 텍스트를 함께 출력합니다. `hf auth login`으로 저장한 토큰을 사용합니다. 두 `from_pretrained` 로더는 `revision`, `token`, `cache_dir`도 지원하므로 CLI 로그인 정보를 사용할 수 없는 환경에서는 `token`을 명시적으로 전달하세요. 특정 릴리스를 고정하려면 두 로더에 동일한 Hub 커밋 revision을 전달하세요.
 
 ### 로컬 가중치
 
