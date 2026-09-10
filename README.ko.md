@@ -5,7 +5,7 @@
 SproutKO-130M은 **129,983,232개 고유 파라미터의 한국어 사전학습 decoder-only Transformer**입니다. 텍스트를 이어 쓰는 **기본 모델**이며, 이 저장소는 PyTorch 추론 런타임을 제공합니다.
 
 - 코드: [`sprout-research/SproutKO-130M`](https://github.com/sprout-research/SproutKO-130M)
-- 가중치와 토크나이저: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
+- 가중치와 토크나이저: [`sprout-research/SproutKO-130M`](https://huggingface.co/sprout-research/SproutKO-130M)
 - 릴리스 검증 기록: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
 릴리스 설정에 기록된 학습량은 **106,812스텝**, **7,000,031,232토큰**입니다. 사전학습 시퀀스 길이는 **2,048**입니다.
@@ -36,7 +36,7 @@ Windows PowerShell에서는 다음 명령을 사용합니다.
 
 ```bash
 python -m pip install .
-sproutko-generate --checkpoint project-iconik/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
+sproutko-generate --checkpoint sprout-research/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
 첫 실행 시 Hugging Face Hub에서 가중치, 설정, 토크나이저를 다운로드합니다. 이후에는 캐시된 파일을 재사용합니다. 이 세 파일과 설치된 런타임으로 추론을 실행할 수 있습니다.
@@ -49,7 +49,7 @@ sproutko-generate --checkpoint project-iconik/SproutKO-130M --prompt "한국어�
 import torch
 from sproutko import SproutKOForCausalLM, SproutKOTokenizer, generate
 
-source = "project-iconik/SproutKO-130M"
+source = "sprout-research/SproutKO-130M"
 model = SproutKOForCausalLM.from_pretrained(source)
 tokenizer = SproutKOTokenizer.from_pretrained(source)
 

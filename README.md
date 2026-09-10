@@ -5,7 +5,7 @@
 SproutKO-130M is a **Korean pretrained decoder-only Transformer** with **129,983,232 unique parameters**. It is a **base** model for text completion. This repository provides the PyTorch inference runtime.
 
 - Code: [`sprout-research/SproutKO-130M`](https://github.com/sprout-research/SproutKO-130M)
-- Weights and tokenizer: [`project-iconik/SproutKO-130M`](https://huggingface.co/project-iconik/SproutKO-130M)
+- Weights and tokenizer: [`sprout-research/SproutKO-130M`](https://huggingface.co/sprout-research/SproutKO-130M)
 - Release verification: [`release/VERIFICATION.md`](release/VERIFICATION.md)
 
 The release configuration records **7,000,031,232 training tokens** at step **106,812**. The pretraining sequence length is **2,048**.
@@ -36,7 +36,7 @@ Install the runtime and generate text on CPU:
 
 ```bash
 python -m pip install .
-sproutko-generate --checkpoint project-iconik/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
+sproutko-generate --checkpoint sprout-research/SproutKO-130M --prompt "한국어는" --max-new-tokens 64 --temperature 0 --device cpu
 ```
 
 The first run downloads the model weights, configuration, and tokenizer from Hugging Face Hub. Later runs reuse cached files. These three files and the installed runtime provide everything needed for inference.
@@ -49,7 +49,7 @@ The first run downloads the model weights, configuration, and tokenizer from Hug
 import torch
 from sproutko import SproutKOForCausalLM, SproutKOTokenizer, generate
 
-source = "project-iconik/SproutKO-130M"
+source = "sprout-research/SproutKO-130M"
 model = SproutKOForCausalLM.from_pretrained(source)
 tokenizer = SproutKOTokenizer.from_pretrained(source)
 

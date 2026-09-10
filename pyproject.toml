@@ -15,7 +15,7 @@ dependencies = ["torch>=2.2.0", "numpy>=1.26", "tokenizers>=0.21,<1", "safetenso
 [project.urls]
 Homepage = "https://github.com/sprout-research/SproutKO-130M"
 Repository = "https://github.com/sprout-research/SproutKO-130M"
-"Hugging Face" = "https://huggingface.co/project-iconik/SproutKO-130M"
+"Hugging Face" = "https://huggingface.co/sprout-research/SproutKO-130M"
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "build>=1.2"]

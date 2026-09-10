@@ -1,7 +1,7 @@
 # Publication targets
 
 - Code: https://github.com/sprout-research/SproutKO-130M (new repository; do not rename or push the training repository).
-- Model bundle: https://huggingface.co/project-iconik/SproutKO-130M.
+- Model bundle: https://huggingface.co/sprout-research/SproutKO-130M.
 - Both code and model bundle: Apache-2.0.
 
 Create an empty public GitHub repository with the name above, then push this independent repository's main branch.

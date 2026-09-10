@@ -14,7 +14,7 @@ abstract: >-
   with 129,983,232 unique parameters. Includes model and tokenizer loading,
   autoregressive text generation, and KV caching. Model weights and tokenizer
   files are distributed separately at
-  https://huggingface.co/project-iconik/SproutKO-130M.
+  https://huggingface.co/sprout-research/SproutKO-130M.
 keywords:
   - Korean
   - language model
